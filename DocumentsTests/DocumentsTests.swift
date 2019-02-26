@@ -1,15 +1,15 @@
 //
-//  DocumentsCoreDataRelationshipsTests.swift
-//  DocumentsCoreDataRelationshipsTests
+//  DocumentsTests.swift
+//  DocumentsTests
 //
-//  Created by Robert Graman on 2/26/19.
+//  Created by Robert Graman on 1/30/19.
 //  Copyright © 2019 Robert Graman. All rights reserved.
 //
 
 import XCTest
-@testable import DocumentsCoreDataRelationships
+@testable import Documents
 
-class DocumentsCoreDataRelationshipsTests: XCTestCase {
+class DocumentsTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
