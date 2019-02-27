@@ -10,13 +10,26 @@ import UIKit
 
 class NewCategoryViewController: UIViewController {
 
+    
+    @IBOutlet weak var catName: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func save(_ sender: Any) {
+        let category = Category(title: catName.text ?? "")
+        
+        do {
+            try category?.managedObjectContext?.save()
+            self.navigationController?.popViewController(animated: true)
+        } catch{
+            print("could not save category")
+        }
+        
+    }
+    
     /*
     // MARK: - Navigation
 

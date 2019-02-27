@@ -11,68 +11,70 @@ import CoreData
 
 
 class DocumentsViewController: UIViewController , UITableViewDataSource, UITableViewDelegate{
-    var documents2 = [Doc]()
     let dateFormatter = DateFormatter()
-
+    var category: Category?
+    
     @IBOutlet weak var documentsTableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return documents2.count
+        return category?.documents?.count ?? 0
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "documentCell", for:indexPath)
+        
         dateFormatter.dateFormat = "MMMM d, yyyy HH:mm"
-        if let cell = cell as? DocumentsTableViewCell{
-            let document = documents2[indexPath.row]
-            cell.fileName.text = document.title
-            cell.fileSize.text = document.fileSize
-            cell.fileDate.text = dateFormatter.string(from: document.dateMod! as Date)
+        if let document = category?.documents?[indexPath.row]{
+            if let cell = cell as? DocumentsTableViewCell{
+
+                cell.fileName.text = document.title
+                cell.fileSize.text = document.fileSize
+                cell.fileDate.text = dateFormatter.string(from: document.dateMod! as Date)
+            }
+
         }
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .destructive, title: "Delete"){ (action, indexPath) in
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-                return
-            }
-            let managedContext = appDelegate.persistentContainer.viewContext
-            let document = self.documents2[indexPath.row]
-            managedContext.delete(document)
-            do{
-                try managedContext.save()
-            }catch{
-                print("Error")
-                self.documentsTableView.reloadData()
-            }
-            
-            self.documents2.remove(at: indexPath.row)
-            self.documentsTableView.deleteRows(at: [indexPath], with: .fade)
+    
+    func deleteDocument(at indexPath: IndexPath) {
+        guard let document = category?.documents?[indexPath.row]else {
+            return
         }
-        return [delete]
+        guard let managedContext = document.managedObjectContext else{
+            return
+        }
+        managedContext.delete(document)
+        do{
+            try managedContext.save()
+            documentsTableView.deleteRows(at: [indexPath], with: .automatic)
+        } catch{
+            print("saved wrong")
+            documentsTableView.reloadRows(at: [indexPath], with: .automatic)
+        }
     }
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        print("ghjhghj")
+        if editingStyle == .delete{
+            deleteDocument(at: indexPath)
+        }
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? EditorViewController,
-            let row = documentsTableView.indexPathForSelectedRow?.row {
-            
+        
+        if let destination = segue.destination as? EditorViewController{
             if (segue.identifier == "add") {
-                destination.document2 = nil
-            } else {
-                destination.document2 = documents2[row]
+                destination.document = nil
             }
-            destination.document2 = segue.identifier == "add" ? nil : documents2[row]
-            
-            
+            else{
+                if let row = documentsTableView.indexPathForSelectedRow?.row{
+                    destination.document = category?.documents?[row]
+                }
+            }
+            destination.category = category
         }
     }
 
@@ -80,19 +82,7 @@ class DocumentsViewController: UIViewController , UITableViewDataSource, UITable
         super.viewDidLoad()
     }
     override func viewDidAppear(_ animated: Bool) {
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-            return
-        }
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest:NSFetchRequest<Doc> = Doc.fetchRequest()
-        do{
-            documents2 = try managedContext.fetch(fetchRequest)
-        }
-        catch{
-            print("fetch failed.")
-        }
         documentsTableView.reloadData()
-        
     }
+
 }

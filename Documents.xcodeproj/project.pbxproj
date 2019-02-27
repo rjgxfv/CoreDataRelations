@@ -10,14 +10,12 @@
 		EF3FC54E221B93E000C4FEB8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF3FC54C221B93E000C4FEB8 /* Model.xcdatamodeld */; };
 		EF4C4E4C22023AC200B607C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4C4E4B22023AC200B607C9 /* AppDelegate.swift */; };
 		EF4C4E5122023AC200B607C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF4C4E4F22023AC200B607C9 /* Main.storyboard */; };
-		EF4C4E5322023AC400B607C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF4C4E5222023AC400B607C9 /* Assets.xcassets */; };
 		EF4C4E5622023AC400B607C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF4C4E5422023AC400B607C9 /* LaunchScreen.storyboard */; };
 		EF4C4E6122023AC400B607C9 /* DocumentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4C4E6022023AC400B607C9 /* DocumentsTests.swift */; };
 		EF4C4E6C22023AC400B607C9 /* DocumentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4C4E6B22023AC400B607C9 /* DocumentsUITests.swift */; };
 		EF4C4E882203710E00B607C9 /* DocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4C4E872203710E00B607C9 /* DocumentsViewController.swift */; };
 		EF4C4E8A220377C600B607C9 /* DocumentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4C4E89220377C600B607C9 /* DocumentsTableViewCell.swift */; };
 		EF4C4E8D220378FE00B607C9 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4C4E8C220378FE00B607C9 /* EditorViewController.swift */; };
-		EF4C4E8F2203891A00B607C9 /* document.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4C4E8E2203891A00B607C9 /* document.swift */; };
 		EF6004C6222665E3009AC2CE /* Doc+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6004C4222665E2009AC2CE /* Doc+CoreDataProperties.swift */; };
 		EF6004C7222665E3009AC2CE /* Doc+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6004C5222665E3009AC2CE /* Doc+CoreDataClass.swift */; };
 		EF6004CA2226661E009AC2CE /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6004C82226661E009AC2CE /* Category+CoreDataClass.swift */; };
@@ -49,7 +47,6 @@
 		EF4C4E4822023AC200B607C9 /* Documents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Documents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF4C4E4B22023AC200B607C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF4C4E5022023AC200B607C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EF4C4E5222023AC400B607C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF4C4E5522023AC400B607C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF4C4E5722023AC400B607C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF4C4E5C22023AC400B607C9 /* DocumentsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DocumentsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,7 +58,6 @@
 		EF4C4E872203710E00B607C9 /* DocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsViewController.swift; sourceTree = "<group>"; };
 		EF4C4E89220377C600B607C9 /* DocumentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsTableViewCell.swift; sourceTree = "<group>"; };
 		EF4C4E8C220378FE00B607C9 /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
-		EF4C4E8E2203891A00B607C9 /* document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = document.swift; path = savedDocuments/document.swift; sourceTree = "<group>"; };
 		EF6004C4222665E2009AC2CE /* Doc+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Doc+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EF6004C5222665E3009AC2CE /* Doc+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Doc+CoreDataClass.swift"; sourceTree = "<group>"; };
 		EF6004C82226661E009AC2CE /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -123,19 +119,17 @@
 				EF6004C92226661E009AC2CE /* Category+CoreDataProperties.swift */,
 				EF6004C5222665E3009AC2CE /* Doc+CoreDataClass.swift */,
 				EF6004C4222665E2009AC2CE /* Doc+CoreDataProperties.swift */,
-				EF4C4E4B22023AC200B607C9 /* AppDelegate.swift */,
-				EF4C4E4F22023AC200B607C9 /* Main.storyboard */,
-				EF4C4E5222023AC400B607C9 /* Assets.xcassets */,
-				EF4C4E5422023AC400B607C9 /* LaunchScreen.storyboard */,
-				EF4C4E5722023AC400B607C9 /* Info.plist */,
-				EF4C4E8E2203891A00B607C9 /* document.swift */,
 				EF4C4E872203710E00B607C9 /* DocumentsViewController.swift */,
+				EF6004CC22266A3B009AC2CE /* CategoriesViewController.swift */,
+				EF6004D022266A93009AC2CE /* NewCategoryViewController.swift */,
 				EF4C4E89220377C600B607C9 /* DocumentsTableViewCell.swift */,
+				EF6004CE22266A71009AC2CE /* CategoryTableViewCell.swift */,
 				EF4C4E8C220378FE00B607C9 /* EditorViewController.swift */,
 				EF3FC54C221B93E000C4FEB8 /* Model.xcdatamodeld */,
-				EF6004CC22266A3B009AC2CE /* CategoriesViewController.swift */,
-				EF6004CE22266A71009AC2CE /* CategoryTableViewCell.swift */,
-				EF6004D022266A93009AC2CE /* NewCategoryViewController.swift */,
+				EF4C4E4F22023AC200B607C9 /* Main.storyboard */,
+				EF4C4E4B22023AC200B607C9 /* AppDelegate.swift */,
+				EF4C4E5422023AC400B607C9 /* LaunchScreen.storyboard */,
+				EF4C4E5722023AC400B607C9 /* Info.plist */,
 			);
 			path = Documents;
 			sourceTree = "<group>";
@@ -263,7 +257,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF4C4E5622023AC400B607C9 /* LaunchScreen.storyboard in Resources */,
-				EF4C4E5322023AC400B607C9 /* Assets.xcassets in Resources */,
 				EF4C4E5122023AC200B607C9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,7 +290,6 @@
 				EF4C4E882203710E00B607C9 /* DocumentsViewController.swift in Sources */,
 				EF6004C7222665E3009AC2CE /* Doc+CoreDataClass.swift in Sources */,
 				EF4C4E8D220378FE00B607C9 /* EditorViewController.swift in Sources */,
-				EF4C4E8F2203891A00B607C9 /* document.swift in Sources */,
 				EF6004CB2226661E009AC2CE /* Category+CoreDataProperties.swift in Sources */,
 				EF6004CA2226661E009AC2CE /* Category+CoreDataClass.swift in Sources */,
 				EF3FC54E221B93E000C4FEB8 /* Model.xcdatamodeld in Sources */,
