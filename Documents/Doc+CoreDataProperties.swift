@@ -2,7 +2,7 @@
 //  Doc+CoreDataProperties.swift
 //  Documents
 //
-//  Created by Robert Graman on 2/19/19.
+//  Created by Robert Graman on 2/27/19.
 //  Copyright © 2019 Robert Graman. All rights reserved.
 //
 //
@@ -21,5 +21,6 @@ extension Doc {
     @NSManaged public var dateMod: NSDate?
     @NSManaged public var fileSize: String?
     @NSManaged public var title: String?
+    @NSManaged public var category: Category?
 
 }

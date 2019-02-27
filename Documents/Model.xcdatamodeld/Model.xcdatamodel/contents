@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Category" representedClassName="Category" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="rawDocs" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Doc" inverseName="category" inverseEntity="Doc" syncable="YES"/>
+    </entity>
     <entity name="Doc" representedClassName="Doc" syncable="YES">
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateMod" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="fileSize" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="rawDocs" inverseEntity="Category" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Doc" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Category" positionX="-54" positionY="18" width="128" height="73"/>
+        <element name="Doc" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>
